@@ -1,6 +1,6 @@
-# GL.iNet Backdoor Notes (`ulogd` / `monitord` / `ujaild`)
+# GL.iNet Backdoor Notes (ulogd / monitord` / ujaild)
 
-While checking my GL.iNet router (`GL-MT2500, firmware 4.7.13 release2) for signs of the 11/20/2026 GoodCloud incident, I found a separate backdoor that had been on the device since **December 19, 2025**.
+While checking my GL.iNet router (GL-MT2500, firmware 4.7.13 release2) for signs of the 11/20/2026 GoodCloud incident, I found a separate backdoor that had been on the device since **December 19, 2025**.
 
 This repo contains my findings, hashes, and IoCs. No live malware binaries are uploaded here.
 
