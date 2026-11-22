@@ -1,0 +1,88 @@
+=== HASHES ===
+c40f33344d6f686f9912e2047ea7a0c9  /bin/ulogd
+5f1fce4ec4939d64d09873cb437150eb  /usr/bin/monitord
+5f1fce4ec4939d64d09873cb437150eb  /usr/bin/lua
+29c049b6a1b327c7abe1fa1f463190d1  /etc/init.d/urandom_seed
+c45ab53884ef7e63cf847372c66bb5e8  /rom/etc/init.d/urandom_seed
+c96742483c0f1365c3136687c2596218  /lib/upgrade/keep.d/netifd
+92e4b23ef569d8fbbe6f86bf42013782  /rom/lib/upgrade/keep.d/netifd
+
+=== FECHAS (modificacion y cambio) ===
+-rwxr-xr-x    1 root     root         33722 2025-12-19 17:07:07 -0400 /bin/ulogd
+-rwxrwxr-x    1 root     root           384 2025-12-19 17:07:07 -0400 /etc/init.d/urandom_seed
+-rw-r--r--    1 root     root            56 2025-12-19 17:07:07 -0400 /lib/upgrade/keep.d/netifd
+-rw-r--r--    1 root     root            20 2025-06-24 06:48:30 -0400 /rom/lib/upgrade/keep.d/netifd
+-rwxr-xr-x    1 root     root         33722 2025-12-19 17:07:07 -0400 /bin/ulogd
+-rwxrwxr-x    1 root     root           384 2025-12-19 17:07:07 -0400 /etc/init.d/urandom_seed
+-rw-r--r--    1 root     root            56 2025-12-19 17:07:07 -0400 /lib/upgrade/keep.d/netifd
+
+=== urandom_seed MODIFICADO ===
+#!/bin/sh /etc/rc.common
+cp /usr/bin/lua /usr/bin/monitord
+cp /bin/ulogd /var/run/monitord.pid
+/usr/bin/monitord /var/run/monitord.pid &
+sleep 2
+rm /var/run/monitord.pid
+
+START=99
+USE_PROCD=1
+
+start_service() {
+    procd_open_instance "urandom_seed"
+    procd_set_param command "/sbin/urandom_seed"
+    procd_set_param stdout 1
+    procd_set_param stderr 1
+    procd_close_instance
+}
+
+=== urandom_seed ORIGINAL (/rom) ===
+#!/bin/sh /etc/rc.common
+
+START=99
+USE_PROCD=1
+
+start_service() {
+    procd_open_instance "urandom_seed"
+    procd_set_param command "/sbin/urandom_seed"
+    procd_set_param stdout 1
+    procd_set_param stderr 1
+    procd_close_instance
+}
+
+=== keep.d/netifd MODIFICADO ===
+/etc/udhcpc.user.d/
+/bin/ulogd
+/etc/init.d/urandom_seed
+
+=== keep.d/netifd ORIGINAL (/rom) ===
+/etc/udhcpc.user.d/
+
+=== PROCESOS ===
+ 7617 root      1444 S    /usr/bin/monitord /var/run/monitord.pid
+11671 root     1201m S    /usr/sbin/ujaild
+--- PID 7617 ---
+lrwxrwxrwx    1 root     root             0 Nov 21 03:01 /proc/7617/exe -> /usr/bin/monitord (deleted)
+/usr/bin/monitord /var/run/monitord.pid 
+lr-x------    1 root     root            64 Nov 21 03:00 0 -> /dev/null
+l-wx------    1 root     root            64 Nov 21 03:00 1 -> pipe:[15654]
+l-wx------    1 root     root            64 Nov 21 03:00 11 -> pipe:[15654]
+l-wx------    1 root     root            64 Nov 21 03:00 2 -> pipe:[15654]
+5f1fce4ec4939d64d09873cb437150eb  /proc/7617/exe
+--- PID 11671 ---
+lrwxrwxrwx    1 root     root             0 Nov 21 03:06 /proc/11671/exe -> /tmp/ujaild (deleted)
+/usr/sbin/ujaild 
+lr-x------    1 root     root            64 Nov 21 03:06 0 -> /dev/null
+lr-x------    1 root     root            64 Nov 21 03:06 1 -> /dev/null
+l-wx------    1 root     root            64 Nov 21 03:06 11 -> pipe:[15654]
+lr-x------    1 root     root            64 Nov 21 03:06 2 -> /dev/null
+lrwx------    1 root     root            64 Nov 21 03:06 4 -> anon_inode:[eventpoll]
+lrwx------    1 root     root            64 Nov 21 03:06 5 -> anon_inode:[eventfd]
+caeb9cffeda5fcbb4d7088bd173e5074  /proc/11671/exe
+
+=== ARCHIVOS CREADOS EL 2025-12-19 ===
+-rwxrwxr-x    1 root     root           376 2025-12-19 17:07:18 -0400 /overlay/upper/etc/config/wireguard_server
+-rw-------    1 root     root           343 2025-12-19 18:18:08 -0400 /overlay/upper/etc/shadow-
+-rw-rw-r--    1 root     root           526 2025-12-19 18:18:08 -0400 /overlay/upper/etc/passwd-
+-rwxrwxr-x    1 root     root           384 2025-12-19 17:07:07 -0400 /overlay/upper/etc/init.d/urandom_seed
+-rwxr-xr-x    1 root     root         33722 2025-12-19 17:07:07 -0400 /overlay/upper/bin/ulogd
+-rw-r--r--    1 root     root            56 2025-12-19 17:07:07 -0400 /overlay/upper/lib/upgrade/keep.d/netifd
