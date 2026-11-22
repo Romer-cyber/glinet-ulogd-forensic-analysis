@@ -1,0 +1,26 @@
+# GL.iNet ulogd / ujaild IoCs (infection date: 2025-12-19)
+
+# C2 Domains
+adguardns[.]org
+adguardns[.]com
+cdn.adguardns[.]org
+cdn.adguardns[.]com
+
+# Nameservers
+sreeni.ns.cloudflare.com
+thaddeus.ns.cloudflare.com
+
+# MD5
+c40f33344d6f686f9912e2047ea7a0c9  /bin/ulogd
+caeb9cffeda5fcbb4d7088bd173e5074  /tmp/ujaild
+29c049b6a1b327c7abe1fa1f463190d1  /etc/init.d/urandom_seed
+c96742483c0f1365c3136687c2596218  /lib/upgrade/keep.d/netifd
+5f1fce4ec4939d64d09873cb437150eb  /usr/bin/monitord
+
+# Paths
+/bin/ulogd
+/etc/init.d/urandom_seed
+/lib/upgrade/keep.d/netifd
+/usr/bin/monitord
+/var/run/monitord.pid
+/tmp/ujaild
