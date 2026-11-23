@@ -46,8 +46,10 @@ From decompiling the Lua 5.1 bytecode:
 ## C2 Domains (WHOIS)
 
 Both lookalike AdGuard domains were registered on **2025-12-08** (11 days before my infection) for 2 years across different registrars, using the same Cloudflare nameservers:
-- `adguardns[.]org` (Name.com) — WHOIS updated `2026-08-12`
-- `adguardns[.]com` (NameCheap)
+- adguardns.org (Name.com) — WHOIS updated `2026-08-12`
+- adguardns.com (NameCheap)
+- up.adguardns.com,
+- up.adguardns.org
 - Nameservers: `sreeni.ns.cloudflare.com`, `thaddeus.ns.cloudflare.com`
 
 ## Quick Check (SSH)
